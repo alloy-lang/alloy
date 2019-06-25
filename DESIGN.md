@@ -12,7 +12,9 @@ This section will serve as a dumping ground for annoyances with existing program
 
 This section will serve as a scrap paper for delights with existing programming languages, with the goal of finding cool ideas to try and replicate
 
-Data classes/data objects/records:
+### Data classes/data objects/records
+
+#### Typescript
 ```typescript
 export type Effect = Timing | Timed;
 
@@ -27,3 +29,10 @@ export function Timed(timeMs: number, label: string): Timed {
     return {type: "Timed", timeMs: timeMs, label: label};
 }
 ```
+
+#### Alloy
+```
+data Timing = { timeMs: number, label: string }
+data Timed = { timeMs: number, label: string }
+
+union Effect = Timing | Timed
