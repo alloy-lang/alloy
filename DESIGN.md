@@ -14,7 +14,40 @@ This section will serve as a scrap paper for delights with existing programming 
 
 ### Data classes/data objects/records
 
-#### Typescript
+#### Simple unions
+##### Typescript
+```typescript
+type False = "false";
+type True = "true";
+
+const False: Bool = "false";
+const True: Bool = "true";
+
+type Bool = False | True  
+```
+
+##### Alloy
+```typescript
+data Bool = False | True  
+```
+
+#### Unions that hold data
+##### Typescript
+```typescript
+type Circle = [number, number, number];
+type Rectangle = [number, number, number, number];
+
+type Shape = Circle | Rectangle;
+```
+
+##### Alloy
+```
+data Shape = Circle Float Float Float | Rectangle Float Float Float Float
+```
+
+
+#### Effects
+##### Typescript
 ```typescript
 export type Effect = Timing | Timed;
 
@@ -30,7 +63,7 @@ export function Timed(timeMs: number, label: string): Timed {
 }
 ```
 
-#### Alloy
+##### Alloy
 ```
 data Timing = { timeMs: number, label: string }
 data Timed = { timeMs: number, label: string }
