@@ -45,27 +45,81 @@ type Shape = Circle | Rectangle;
 data Shape = Circle Float Float Float | Rectangle Float Float Float Float
 ```
 
-
-#### Effects
+#### Records
 ##### Typescript
 ```typescript
-export type Effect = Timing | Timed;
+type Person = {
+  firstName: string,
+  lastName: string,
+  age: number,
+  height: number,
+  phoneNumber: string,
+  flavor: string,
+};
+```
+##### Alloy
 
-export type Timing = { type: "Timing", timeMs: number, label: string };
-export type Timed = { type: "Timed", timeMs: number, label: string };
+Just like many modern languages, Alloy has variable types on the left side of the name.  
+Those familiar with Haskell or Elm might recognize the style of having the `,` on the front.  
 
-export function Timing(timeMs: number, label: string): Timing {
-    return {type: "Timing", timeMs: timeMs, label: label};
+The `:` is allowed to have any amount of whitespace between the variable and the Type.
+
+```
+data Person = Person { firstName:  String
+                     , lastName :  String
+                     , age:        Int
+                     , height   :  Float
+                     , phoneNumber:String
+                     , flavor : String
+                     }
+```
+
+#### Type Constructors
+##### Typescript
+```typescript
+type Circle = [number, number, number];
+type Rectangle = [number, number, number, number];
+
+type Shape = Circle | Rectangle;
+
+function circle(x: number, y: number, radius: number): Circle {
+  return [x, y, radius];
 }
 
-export function Timed(timeMs: number, label: string): Timed {
-    return {type: "Timed", timeMs: timeMs, label: label};
+function rectangle(upper_right_x: number, upper_right_y: number, lower_left_x: number, lower_left_y: number): Rectangle {
+  return [upper_right_x, upper_right_y, lower_left_x, lower_left_y];
 }
+
 ```
 
 ##### Alloy
 ```
-data Timing = { timeMs: number, label: string }
-data Timed = { timeMs: number, label: string }
+data Shape = Circle Float Float Float | Rectangle Float Float Float Float
+```
 
-union Effect = Timing | Timed
+#### Type Constructors - Records
+##### Typescript
+```typescript
+type Person = {
+  firstName: string,
+  lastName: string,
+  age: number,
+  height: number,
+  phoneNumber: string,
+  flavor: string,
+};
+```
+
+##### Alloy
+
+```
+data Person = Person { firstName:  String
+                     , lastName :  String
+                     , age:        Int
+                     , height   :  Float
+                     , phoneNumber:String
+                     , flavor : String
+                     }
+                     
+
+```
