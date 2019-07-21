@@ -147,3 +147,8 @@ data Person = Person { firstName:  String
                      
 
 ```
+
+## Reference
+
+### Structural type systems
+- https://en.wikipedia.org/wiki/Structural_type_system
