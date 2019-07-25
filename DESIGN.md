@@ -10,7 +10,7 @@ This section will serve as a dumping ground for annoyances with existing program
 
 ### Various idioms for communicating failure
 
-Functions fail. Sometimes these failures are unexpected (network failures, out of memory, etc.), but more often than not failures is a normal part of using standard library APIs.
+Functions fail. Sometimes these failures (we will prefer the term "errors") are unexpected, network failures, out of memory, etc.; but more often than not failures is a normal part of using standard library APIs.
 
 One annoyance with various languages is the inconsistant and seemily random ways of communicating failure.
 
@@ -31,6 +31,17 @@ In the case of `indexOf`, the lowest possible integer than can be returned in a 
 The function returns a value that would be impossible to receive during a success.
 
 This return value does communicate failure, but it also requires some specific knowledge and expectation of what values will be returned in order to use this function correctly.
+
+#### Summary
+
+Ways to communicate failure:
+1. Return default values: `String.indexOf() => -1`
+2. Exceptions: `Integer.parse => BOOM` or `List.get() => BOOM`
+3. Return null: `Map.get() => null`
+4. ???
+5. Type safe containers: `List<T>.first(predicate) => Option<T>` or ``
+
+Alloy should prefer keeping things explicit, probably by using type safe containers to communicate the possibility of failure.
 
 ## Delights
 
