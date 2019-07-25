@@ -32,6 +32,22 @@ The function returns a value that would be impossible to receive during a succes
 
 This return value does communicate failure, but it also requires some specific knowledge and expectation of what values will be returned in order to use this function correctly.
 
+#### Integer.parse
+
+I'm going to continue to pick on Java.  
+There exists a method in Java to convert from an `Integer` to a `String`: `Integer.parse`.  
+As one may expect, this method returns an integer from its' string representation.
+```java
+Integer.parse("1") // returns 1
+Integer.parse("987562") // returns 987562
+```
+
+What happens when you pass in a string that cannot be converted to an integer?
+
+In the first example, the return type was an Integer. When finding the index of a character in a string, valid indexes are in the set of integers greater than or equal to 0. In a failure case, where you don't find the character, it therefore is possible to return a negative number!
+
+But in this case, strings can represent both positives and negative ints. Default values can't be used to communicate failure to parse a string.
+
 #### Summary
 
 Ways to communicate failure:
@@ -39,7 +55,7 @@ Ways to communicate failure:
 2. Exceptions: `Integer.parse => BOOM` or `List.get() => BOOM`
 3. Return null: `Map.get() => null`
 4. ???
-5. Type safe containers: `List<T>.first(predicate) => Option<T>` or ``
+5. Type safe containers: `List<T>.first(predicate) => Option<T>` or `GitHubClient.fetchRepos(username) => Either<TFailure, TSuccess>`
 
 Alloy should prefer keeping things explicit, probably by using type safe containers to communicate the possibility of failure.
 
