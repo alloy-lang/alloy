@@ -52,10 +52,9 @@ But in this case, strings can represent both positives and negative ints. Defaul
 
 Ways to communicate failure:
 1. Return default values: `String.indexOf() => -1` or `User.name => ""`
-2. Exceptions: `Integer.parse => BOOM` or `List.get() => BOOM`
+2. Exceptions (Checked and Unchecked): `Integer.parse => BOOM` or `List.get() => BOOM`
 3. Return null: `Map.get() => null`
-4. ???
-5. Type safe containers: `List<T>.first(predicate) => Option<T>` or `GitHubClient.fetchRepos(username) => Either<TFailure, TSuccess>`
+4. Type safe containers: `List<T>.first(predicate) => Option<T>` or `GitHubClient.fetchRepos(username) => Either<TFailure, TSuccess>`
 
 Alloy should prefer keeping things explicit, probably by using type safe containers to communicate the possibility of failure.
 
