@@ -63,7 +63,18 @@ Alloy should prefer keeping things explicit, probably by using type safe contain
 
 This section will serve as a scrap paper for delights with existing programming languages, with the goal of finding cool ideas to try and replicate
 
-### Data classes/data objects/records
+### Type systems
+
+Alloy should have all the tools necessary to communicate any type of data using explicit types. We hope to achieve this using a mixture of structural typing and nominal typing, depending on the situation.
+
+Strucutral typing is a classification of type system, where type compatibility and equivalence are based on the properties (structure) of the given type.
+Unlike "duck typing", which depends on the characterics of a type at runtime, structural typing is based on compile time characterics.  
+Typescript is probably the best example of a very popular language that uses a structural typing strategy.  
+
+Nominal typing is a classification of type system, where type compatibility and equivalence are based on explicit declarations such as the name of a type, or the place of declaration.
+Java, C#, and many other popular "static" programming languages use nominal typing.
+
+Below, we go into specific examples of nominal typing, here used for types commonly known as union types, case classes, sealed classes, or algebraic data types.
 
 #### Simple unions
 ##### Typescript
@@ -79,7 +90,7 @@ type Bool = False | True
 
 ##### Alloy
 ```typescript
-data Bool = False | True  
+data Bool = False | True
 ```
 
 #### Unions that hold data
@@ -95,6 +106,10 @@ type Shape = Circle | Rectangle;
 ```
 data Shape = Circle Float Float Float | Rectangle Float Float Float Float
 ```
+
+### Data classes/data objects/records
+
+Here, we go into specific examples of structural typing.
 
 #### Records
 ##### Typescript
