@@ -80,11 +80,30 @@ Java, C#, and many other popular "static" programming languages use nominal typi
 
 Below, we go into specific examples of nominal typing, here used for types commonly known as union types, case classes, sealed classes, or algebraic data types.
 
+### Unions
+
+Most of the following examples are using Typescript. Typescript uses a structured type system, so assigning names to types needs to be part of the type structure.
+
+Union types are really useful for explicitly defining possibilities. Alloy aims to also allow the number of possibilities to be limitted to exactly what is desired.
+
+Lets look at an example:
+```typescript
+// Color has 3 possibilities
+type Color = Red | Yellow | Green;
+
+// Size has 2 possibilities
+type Size = Small | Large;
+
+// Shirt has 2 x 3 = 6 possibilities
+type Shirt = [Color, Size];
+```
+
+What if we don't want to allow the combination of "small" and "red" for your shirts?
+**How to solve?**
+
+Alloy aims to make union types easy to define and use, without a lot of boilerplate.
+
 #### Simple unions
-
-Typescript uses a structured type system, so nominal typing (assigning names to types) needs to be part of the type structure.
-
-Alloy should make it easy to assign explicit names to types.
 
 ##### Typescript
 ```typescript
@@ -105,8 +124,8 @@ data Bool = False | True
 #### Unions that hold data
 ##### Typescript
 ```typescript
-type Circle = [number, number, number];
-type Rectangle = [number, number, number, number];
+type Circle = { _type: "circle", data: [number, number, number] };
+type Rectangle = { _type: "rectangle", data: [number, number, number, number] };
 
 type Shape = Circle | Rectangle;
 ```
@@ -213,7 +232,7 @@ While Alloy wants to keep types explicit, as well as avoiding the use of a `null
 
 ## Reference
 
-### Structural type systems
-- https://en.wikipedia.org/wiki/Structural_type_system
-### Default/Zero values
-- https://tour.golang.org/basics/12
+### Type systems
+- Structural: https://en.wikipedia.org/wiki/Structural_type_system
+- Types as sets: https://guide.elm-lang.org/appendix/types_as_sets.html
+- Default/Zero values: https://tour.golang.org/basics/12
