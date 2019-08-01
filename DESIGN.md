@@ -64,7 +64,12 @@ This section will serve as a scrap paper for delights with existing programming 
 
 ### Type systems
 
-Alloy should have all the tools necessary to communicate any type of data using explicit types. We hope to achieve this using a mixture of structural typing and nominal typing, depending on the situation.
+In the C language, there is no boolean type. Instead, there are two constants: `TRUE = 1;` and `FALSE = 0;`. This pattern of `1` as true and `0` as false has become intuitive for many developers.  
+Enums in C are actually just integers dressed up with a bowtie. `typedef enum {FALSE = 0, TRUE} boolean;` allows developers to specify their variable types as `boolean`. But what happens when you pass in value `2` into a function expecting `boolean`?
+
+Many Java developers will know the pain of using a `switch/case` statement with an enum. If your enum is defined `enum Color { RED, BLUE, GREEN; }`, why is it necessary to have a `default` block on your case statement when you define a `case` for all of the possibilities?
+
+Alloy aims to solve some of these problems. Using a mixture of structural typing and nominal typing, Alloy should have all the tools necessary to communicate any type of data using explicit types.
 
 Strucutral typing is a classification of type system, where type compatibility and equivalence are based on the properties (structure) of the given type.
 Unlike "duck typing", which depends on the characterics of a type at runtime, structural typing is based on compile time characterics.  
@@ -76,15 +81,20 @@ Java, C#, and many other popular "static" programming languages use nominal typi
 Below, we go into specific examples of nominal typing, here used for types commonly known as union types, case classes, sealed classes, or algebraic data types.
 
 #### Simple unions
+
+Typescript uses a structured type system, so nominal typing (assigning names to types) needs to be part of the type structure.
+
+Alloy should make it easy to assign explicit names to types.
+
 ##### Typescript
 ```typescript
-type False = "false";
-type True = "true";
+type False = { _type: "false" };
+type True = { _type: "true" };
 
-const False: Bool = "false";
-const True: Bool = "true";
+const False: Bool = { _type: "false" };
+const True: Bool = { _type: "true" };
 
-type Bool = False | True  
+type Bool = False | True;
 ```
 
 ##### Alloy
@@ -199,7 +209,11 @@ Technically, `String?` is equivalent to `String | null`.
 
 While Alloy wants to keep types explicit, as well as avoiding the use of a `null` type, we will consider providing language level tooling (such as this) for making the `Option` type easier to work with.
 
+### Expressions vs Statements
+
 ## Reference
 
 ### Structural type systems
 - https://en.wikipedia.org/wiki/Structural_type_system
+### Default/Zero values
+- https://tour.golang.org/basics/12
