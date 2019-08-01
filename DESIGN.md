@@ -189,6 +189,16 @@ data Person = Person { firstName:  String
 
 ```
 
+### Explicit nullability
+
+Kotlin has a special way to communicate the possibility of a `null` value.
+
+`val name: String?` has the possibility of returning `null`. `val name: String` will never return `null`. 
+
+Technically, `String?` is equivalent to `String | null`. 
+
+While Alloy wants to keep types explicit, as well as avoiding the use of a `null` type, we will consider providing language level tooling (such as this) for making the `Option` type easier to work with.
+
 ## Reference
 
 ### Structural type systems
