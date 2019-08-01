@@ -51,7 +51,7 @@ But in this case, strings can represent both positives and negative ints. Defaul
 #### Summary
 
 Ways to communicate failure:
-1. Return default values: `String.indexOf() => -1`
+1. Return default values: `String.indexOf() => -1` or `User.name => ""`
 2. Exceptions: `Integer.parse => BOOM` or `List.get() => BOOM`
 3. Return null: `Map.get() => null`
 4. ???
