@@ -105,7 +105,10 @@ Alloy aims to make union types easy to define and use, without a lot of boilerpl
 
 #### Simple unions
 
+Alloy aims to provide unions that can act as enums, while using characteristics of nominal type systems to keep enums from being used in the wrong places. 
+
 ##### Typescript
+Booleans:
 ```typescript
 type False = { _type: "false" };
 type True = { _type: "true" };
@@ -116,9 +119,27 @@ const True: Bool = { _type: "true" };
 type Bool = False | True;
 ```
 
-##### Alloy
+Colors:
 ```typescript
+type Red = { _type: "red" };
+type Yellow = { _type: "yellow" };
+type Green = { _type: "green" }
+
+const Red: Color = { _type: "red" };
+const Yellow: Color = { _type: "yellow" };
+const Green: Color = { _type: "green" };
+
+type Color = Red | Yellow | Green;
+```
+##### Alloy
+Booleans:
+```
 data Bool = False | True
+```
+
+Colors:
+```
+data Color = Red | Yellow | Green
 ```
 
 #### Unions that hold data
