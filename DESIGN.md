@@ -98,8 +98,24 @@ type Size = Small | Large;
 type Shirt = [Color, Size];
 ```
 
-What if we don't want to allow the combination of "small" and "red" for your shirts?
-**How to solve?**
+What if we want to remove "Green" as a `FallColor`?
+```alloy
+data Color = Red | Yellow | Green
+
+data FallColor = Red | Yellow
+
+// Alternatively
+data FallColor = Color where not Color.Green
+```
+
+What if we don't want to allow the combination of "Small" and "Red" for your shirts?
+```alloy
+data Color = Red | Yellow | Green
+
+data Size = Small | Large
+
+data Shirt = (Color, Size) where not (Color.Red, Shirt.Small)
+```
 
 Alloy aims to make union types easy to define and use, without a lot of boilerplate.
 
