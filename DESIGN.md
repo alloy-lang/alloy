@@ -259,7 +259,7 @@ data Person = Person { firstName:  String
 
 Kotlin has a special way to communicate the possibility of a `null` value.
 
-`val name: String?` has the possibility of returning `null`. `val name: String` will never return `null`. 
+`val name: String?` has the possibility of being `null`. `val name: String` will never be `null`. 
 
 Technically, `String?` is equivalent to `String | null`. 
 
