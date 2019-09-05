@@ -159,6 +159,10 @@ data Color = Red | Yellow | Green
 ```
 
 #### Unions that hold data
+
+It often makes sense to have your unions hold data, making them quite a bit more powerful than normal enums.
+This is great for simple stuff, but it quickly becomes difficult to reason about.
+
 ##### Typescript
 ```typescript
 type Circle = { _type: "circle", data: [number, number, number] };
@@ -171,6 +175,7 @@ type Shape = Circle | Rectangle;
 ```
 data Shape = Circle Float Float Float | Rectangle Float Float Float Float
 ```
+
 
 ### Data classes/data objects/records
 
