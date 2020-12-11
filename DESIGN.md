@@ -249,12 +249,12 @@ type Person = {
 ##### Alloy
 
 ```
-data Person = Person { firstName:  String
-                     , lastName :  String
-                     , age:        Int
-                     , height   :  Float
-                     , phoneNumber:String
-                     , flavor : String
+data Person = Person { firstName.  : String
+                     , lastName    : String
+                     , age         : Int
+                     , height      : Float
+                     , phoneNumber : String
+                     , flavor      : String
                      }
                      
 
