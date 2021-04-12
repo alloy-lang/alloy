@@ -10,7 +10,7 @@ This section will serve as a dumping ground for annoyances with existing program
 
 ### Various idioms for communicating failure
 
-Functions fail. Sometimes these failures (we will prefer the term "errors") are unexpected, network failures, out of memory, etc.; but more often than not failures is a normal part of using standard library APIs.
+Functions fail. Sometimes these failures (we will prefer the term "errors") are unexpected, network failures, out of memory, etc.; but more often than this, failures are a normal part of using standard library APIs.
 
 One annoyance with various languages is the inconsistant and seemily random ways of communicating failure.
 
