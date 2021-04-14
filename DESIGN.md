@@ -274,7 +274,14 @@ While Alloy wants to keep types explicit, as well as avoiding the use of a `null
 
 ## Reference
 
+### Syntax
+- ReScript: https://rescript-lang.org/docs/manual/latest/overview
+- Elm: https://elm-lang.org/docs/syntax
+
 ### Type systems
 - Structural: https://en.wikipedia.org/wiki/Structural_type_system
 - Types as sets: https://guide.elm-lang.org/appendix/types_as_sets.html
 - Default/Zero values: https://tour.golang.org/basics/12
+- Pattern Matching: https://rescript-lang.org/docs/manual/latest/pattern-matching-destructuring
+
+
