@@ -284,6 +284,6 @@ While Alloy wants to keep types explicit, as well as avoiding the use of a `null
 - Default/Zero values: https://tour.golang.org/basics/12
 - Pattern Matching: https://rescript-lang.org/docs/manual/latest/pattern-matching-destructuring
 - Types as Sets: https://guide.elm-lang.org/appendix/types_as_sets.html
-
+- GADTs: https://en.m.wikibooks.org/wiki/Haskell/GADT
 
 
